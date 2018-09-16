@@ -14,7 +14,8 @@ source:
   sha256: 8e0b1d78d3f3a65d15455c426394a94af7dcf6b8de0758f5566be2258173aa7f
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -22,6 +23,7 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - r-ggplot2 >=2.2.0
@@ -46,9 +48,10 @@ about:
 
 extra:
   recipe-maintainers:
+    - djcomlab
     - johanneskoester
     - bgruening
     - daler
     - jdblischak
     - cbrueffer
-    - djcomlab
+    - dbast
