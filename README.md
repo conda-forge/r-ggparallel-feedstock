@@ -14,9 +14,8 @@ Summary: Create hammock plots, parallel sets, and common angle plots with 'ggplo
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-ggparallel-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-ggparallel-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/r-ggparallel-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-ggparallel-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-ggparallel-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-ggparallel-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/r-ggparallel-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/r-ggparallel-feedstock)
 
 Current release info
 ====================
