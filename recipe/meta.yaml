@@ -1,4 +1,4 @@
-{% set version = "0.2.0" %}
+{% set version = '0.2.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,16 +7,15 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: ggparallel_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/ggparallel_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ggparallel/ggparallel_{{ version }}.tar.gz
   sha256: 8e0b1d78d3f3a65d15455c426394a94af7dcf6b8de0758f5566be2258173aa7f
 
 build:
+  merge_build_host: True  # [win]
+  number: 1004
   noarch: generic
-  merge_build_host: true  # [win]
-  number: 1003
   rpaths:
     - lib/R/lib/
     - lib/
@@ -24,6 +23,7 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-ggplot2 >=2.2.0
@@ -45,17 +45,32 @@ about:
   license: MIT
   summary: Create hammock plots, parallel sets, and common angle plots with 'ggplot2'.
   license_family: MIT
-
   license_file:
-    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
     - LICENSE
+
 extra:
   recipe-maintainers:
     - conda-forge/r
     - djcomlab
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+
+# Package: ggparallel
+# Version: 0.2.0
+# Date: 2016-12-05
+# Title: Variations of Parallel Coordinate Plots for Categorical Data
+# Authors@R: c( person("Heike", "Hofmann", , "hofmann@mail.iastate.edu",c("aut", "cre")), person("Marie","Vendettuoli", role="aut") )
+# Description: Create hammock plots, parallel sets, and common angle plots with 'ggplot2'.
+# License: MIT + file LICENSE
+# Depends: R (>= 2.10.0), ggplot2 (>= 2.2.0)
+# Imports: reshape2 (>= 1.4.2), plyr (>= 1.8.4)
+# Suggests: RColorBrewer
+# URL: http://github.com/heike/ggparallel
+# BugReports: https://github.com/heike/ggparallel/issues
+# LazyData: true
+# RoxygenNote: 5.0.1
+# NeedsCompilation: no
+# Packaged: 2016-12-05 14:16:24 UTC; heike
+# Author: Heike Hofmann [aut, cre], Marie Vendettuoli [aut]
+# Maintainer: Heike Hofmann <hofmann@mail.iastate.edu>
+# Repository: CRAN
+# Date/Publication: 2016-12-05 21:42:01
