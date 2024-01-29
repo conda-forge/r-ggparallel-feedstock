@@ -1,4 +1,4 @@
-{% set version = '0.2.0' %}
+{% set version = "0.3.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ggparallel_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ggparallel/ggparallel_{{ version }}.tar.gz
-  sha256: 8e0b1d78d3f3a65d15455c426394a94af7dcf6b8de0758f5566be2258173aa7f
+  sha256: 2e43708c16bbe77a0ecf800f0d396badb78c75d7eabe77ea621ccb7bd839f518
 
 build:
-  merge_build_host: True  # [win]
-  number: 1006
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
